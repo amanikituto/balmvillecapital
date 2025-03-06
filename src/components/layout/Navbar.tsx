@@ -1,10 +1,14 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,11 +28,21 @@ const Navbar = () => {
   };
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (isHome) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        setIsMenuOpen(false);
+      }
+    } else {
+      navigate(`/#${id}`);
       setIsMenuOpen(false);
     }
+  };
+
+  const navigateTo = (path: string) => {
+    navigate(path);
+    setIsMenuOpen(false);
   };
 
   return (
@@ -41,10 +55,10 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <a 
             href="#" 
-            className="flex items-center"
+            className="flex items-center cursor-pointer"
             onClick={(e) => {
               e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
+              navigate('/');
             }}
           >
             <span className="text-2xl font-serif font-bold text-balmville-gold">Balmville</span>
@@ -53,10 +67,27 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a onClick={() => scrollToSection('about')} className="nav-link cursor-pointer">About</a>
-            <a onClick={() => scrollToSection('services')} className="nav-link cursor-pointer">Services</a>
-            <a onClick={() => scrollToSection('industries')} className="nav-link cursor-pointer">Industries</a>
-            <a onClick={() => scrollToSection('contact')} className="nav-link cursor-pointer">Contact</a>
+            {isHome ? (
+              <>
+                <a onClick={() => scrollToSection('about')} className="nav-link cursor-pointer">About</a>
+                <a onClick={() => scrollToSection('services')} className="nav-link cursor-pointer">Services</a>
+                <a onClick={() => scrollToSection('industries')} className="nav-link cursor-pointer">Industries</a>
+                <a onClick={() => scrollToSection('contact')} className="nav-link cursor-pointer">Contact</a>
+              </>
+            ) : (
+              <>
+                <a onClick={() => navigateTo('/#about')} className="nav-link cursor-pointer">About</a>
+                <a onClick={() => navigateTo('/#services')} className="nav-link cursor-pointer">Services</a>
+                <a onClick={() => navigateTo('/#industries')} className="nav-link cursor-pointer">Industries</a>
+                <a onClick={() => navigateTo('/#contact')} className="nav-link cursor-pointer">Contact</a>
+              </>
+            )}
+            <a 
+              onClick={() => navigateTo('/smart-capital-connect')}
+              className={`nav-link cursor-pointer ${location.pathname === '/smart-capital-connect' ? 'opacity-100' : ''}`}
+            >
+              Smart Capital
+            </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -78,10 +109,27 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 blur-bg">
           <div className="container-custom py-4 flex flex-col space-y-4">
-            <a onClick={() => scrollToSection('about')} className="nav-link cursor-pointer">About</a>
-            <a onClick={() => scrollToSection('services')} className="nav-link cursor-pointer">Services</a>
-            <a onClick={() => scrollToSection('industries')} className="nav-link cursor-pointer">Industries</a>
-            <a onClick={() => scrollToSection('contact')} className="nav-link cursor-pointer">Contact</a>
+            {isHome ? (
+              <>
+                <a onClick={() => scrollToSection('about')} className="nav-link cursor-pointer">About</a>
+                <a onClick={() => scrollToSection('services')} className="nav-link cursor-pointer">Services</a>
+                <a onClick={() => scrollToSection('industries')} className="nav-link cursor-pointer">Industries</a>
+                <a onClick={() => scrollToSection('contact')} className="nav-link cursor-pointer">Contact</a>
+              </>
+            ) : (
+              <>
+                <a onClick={() => navigateTo('/#about')} className="nav-link cursor-pointer">About</a>
+                <a onClick={() => navigateTo('/#services')} className="nav-link cursor-pointer">Services</a>
+                <a onClick={() => navigateTo('/#industries')} className="nav-link cursor-pointer">Industries</a>
+                <a onClick={() => navigateTo('/#contact')} className="nav-link cursor-pointer">Contact</a>
+              </>
+            )}
+            <a 
+              onClick={() => navigateTo('/smart-capital-connect')}
+              className={`nav-link cursor-pointer ${location.pathname === '/smart-capital-connect' ? 'opacity-100' : ''}`}
+            >
+              Smart Capital
+            </a>
           </div>
         </div>
       )}
