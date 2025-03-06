@@ -1,12 +1,49 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useEffect } from 'react';
+import Navbar from '../components/layout/Navbar';
+import Footer from '../components/layout/Footer';
+import Hero from '../components/home/Hero';
+import About from '../components/home/About';
+import Services from '../components/home/Services';
+import Industries from '../components/home/Industries';
+import Contact from '../components/home/Contact';
 
 const Index = () => {
+  useEffect(() => {
+    document.body.classList.add('bg-balmville-teal');
+    
+    // Smooth scroll for hash links
+    const handleHashChange = () => {
+      const { hash } = window.location;
+      if (hash) {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    handleHashChange(); // Handle initial hash
+    
+    return () => {
+      document.body.classList.remove('bg-balmville-teal');
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen flex flex-col bg-balmville-teal">
+      <Navbar />
+      <main className="flex-grow">
+        <Hero />
+        <About />
+        <Services />
+        <Industries />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   );
 };

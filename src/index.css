@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -95,7 +91,95 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-medium;
+  }
+
+  p, a, li, span {
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .gold-underline {
+    @apply relative inline-block;
+  }
+  
+  .gold-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 w-0 h-0.5 bg-balmville-gold transition-all duration-300 -translate-x-1/2;
+  }
+  
+  .gold-underline:hover::after {
+    @apply w-full;
+  }
+  
+  .nav-link {
+    @apply relative text-white opacity-80 hover:opacity-100 transition-opacity duration-300 py-2;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-0 h-0.5 bg-balmville-gold transition-all duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .blur-bg {
+    @apply backdrop-blur-md bg-balmville-teal/90;
+  }
+
+  .service-card {
+    @apply h-full border border-balmville-gold/20 bg-gradient-to-b from-balmville-teal/40 to-balmville-teal rounded-lg p-6 transition-all duration-300;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-card:hover {
+    @apply border-balmville-gold/70 transform -translate-y-1;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .industry-card {
+    @apply relative overflow-hidden rounded-lg transition-all duration-500;
+  }
+  
+  .industry-card::before {
+    content: '';
+    @apply absolute inset-0 bg-balmville-teal/70 opacity-0 transition-opacity duration-300;
+  }
+  
+  .industry-card:hover::before {
+    @apply opacity-100;
+  }
+  
+  .industry-card-content {
+    @apply absolute inset-0 flex flex-col justify-end p-6 text-white transform translate-y-4 opacity-0 transition-all duration-300;
+  }
+  
+  .industry-card:hover .industry-card-content {
+    @apply translate-y-0 opacity-100;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-balmville-gold to-balmville-lightGold bg-clip-text text-transparent;
   }
 }
