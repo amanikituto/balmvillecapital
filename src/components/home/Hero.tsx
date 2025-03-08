@@ -55,27 +55,61 @@ const Hero = () => {
           <div className={`flex justify-center transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>
             <div className="w-full max-w-md bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 shadow-xl">
               <div className="flex justify-between items-center mb-6">
-                <h3 className="text-xl font-medium text-white">Financial Performance</h3>
+                <h3 className="text-xl font-medium text-white">Growth Forecast</h3>
                 <div className="flex space-x-2">
                   <TrendingUp className="h-5 w-5 text-balmville-gold" />
                   <LineChart className="h-5 w-5 text-balmville-gold" />
-                  <BarChart3 className="h-5 w-5 text-balmville-gold" />
                 </div>
               </div>
               
               <div className="space-y-6">
-                {/* Stylized Chart */}
-                <div className="h-48 flex items-end space-x-2">
-                  {[35, 45, 30, 60, 75, 65, 85, 90, 70, 80].map((height, index) => (
+                {/* Upward Trending Chart */}
+                <div className="h-48 flex items-end space-x-2 relative">
+                  {/* Grid lines */}
+                  <div className="absolute inset-0 flex flex-col justify-between pointer-events-none">
+                    {[0, 1, 2, 3, 4].map((_, idx) => (
+                      <div key={idx} className="w-full h-px bg-white/10" />
+                    ))}
+                  </div>
+                  
+                  {/* Data points with progressive upward trend */}
+                  {[20, 25, 30, 28, 35, 45, 55, 60, 75, 90].map((height, index) => (
                     <div key={index} className="flex-1 flex flex-col items-center">
                       <div 
                         className="w-full bg-gradient-to-t from-balmville-gold/60 to-balmville-gold rounded-t-sm"
-                        style={{ height: `${height}%`, transition: `height 1s ease-out ${0.1 * index}s` }}
+                        style={{ height: `${height}%`, transition: `height 1.5s ease-out ${0.1 * index}s` }}
                       ></div>
                       <div className="w-full h-px bg-white/20 mt-1"></div>
                       <span className="text-xs text-white/60 mt-1">Q{index + 1}</span>
                     </div>
                   ))}
+                  
+                  {/* Trend line overlay */}
+                  <div className="absolute inset-0 pointer-events-none">
+                    <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                      <path 
+                        d="M0,80 Q10,75 20,70 T40,72 T60,55 T80,40 T100,10" 
+                        fill="none" 
+                        stroke="rgba(255,200,100,0.7)" 
+                        strokeWidth="1.5"
+                        className="opacity-75"
+                      />
+                      {/* Data points on the trend line */}
+                      {[80, 75, 70, 72, 65, 55, 45, 40, 25, 10].map((y, i) => {
+                        const x = i * 10;
+                        return (
+                          <circle 
+                            key={i} 
+                            cx={x} 
+                            cy={y} 
+                            r="1.2" 
+                            fill="#FFD700" 
+                            className="animate-pulse"
+                          />
+                        );
+                      })}
+                    </svg>
+                  </div>
                 </div>
                 
                 <div className="grid grid-cols-3 gap-4">
