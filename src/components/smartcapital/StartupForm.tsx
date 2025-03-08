@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useToast } from "@/hooks/use-toast";
 
@@ -140,7 +139,7 @@ const StartupForm = () => {
   
   return (
     <div>
-      <h2 className="text-2xl font-serif font-semibold text-white mb-6">Startup Funding Application</h2>
+      <h2 className="text-2xl font-serif font-semibold text-white mb-6">Startup Funding</h2>
       
       <div className="flex justify-between mb-8">
         <div 
