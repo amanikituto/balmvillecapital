@@ -8,27 +8,27 @@ const Industries = () => {
   const industries = [
     {
       title: "SMEs & Startups",
-      backgroundImage: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&q=80&w=3000"
+      backgroundImage: "/lovable-uploads/aac8af31-2daf-477f-b912-1b1ee5b4fb05.png"
     },
     {
       title: "Banks & MFIs",
-      backgroundImage: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&q=80&w=3000"
+      backgroundImage: "/lovable-uploads/33f5d625-26a2-4acc-94d7-8423349f5f8d.png"
     },
     {
       title: "Manufacturing & Retail",
-      backgroundImage: "https://images.unsplash.com/photo-1469041797191-50ace28483c3?auto=format&fit=crop&q=80&w=3000"
+      backgroundImage: "/lovable-uploads/ca776323-b00a-4339-a499-cbfd4be595e0.png"
     },
     {
       title: "Fintech & Digital Transformation",
-      backgroundImage: "https://images.unsplash.com/photo-1561414927-6d86591d0c4f?auto=format&fit=crop&q=80&w=3000"
+      backgroundImage: "/lovable-uploads/b5b2edf4-3efa-4f3d-be9b-8d14cf45ba6e.png"
     },
     {
       title: "Real Estate & Hospitality",
-      backgroundImage: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=3000"
+      backgroundImage: "/lovable-uploads/e344068c-08b0-4264-8ed1-2f498911eded.png"
     },
     {
       title: "Healthcare & Education",
-      backgroundImage: "https://images.unsplash.com/photo-1504893524553-b855bce32c67?auto=format&fit=crop&q=80&w=3000"
+      backgroundImage: "/lovable-uploads/0c846a2b-71d6-4b43-9abf-d44d947201cd.png"
     }
   ];
 
