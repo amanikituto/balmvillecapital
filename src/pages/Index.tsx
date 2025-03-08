@@ -7,6 +7,7 @@ import About from '../components/home/About';
 import Services from '../components/home/Services';
 import Industries from '../components/home/Industries';
 import Contact from '../components/home/Contact';
+import ChatbotFAQ from '../components/smartcapital/ChatbotFAQ';
 
 const Index = () => {
   useEffect(() => {
@@ -44,6 +45,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <ChatbotFAQ />
     </div>
   );
 };
