@@ -141,6 +141,7 @@ const ChatbotFAQ = () => {
       <button 
         onClick={toggleChatbot}
         className="fixed bottom-6 right-6 z-50 flex items-center justify-center p-4 rounded-full bg-balmville-gold text-balmville-teal shadow-lg hover:bg-balmville-lightGold transition-all duration-300"
+        aria-label="Open chat assistant"
       >
         {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
       </button>
@@ -160,6 +161,7 @@ const ChatbotFAQ = () => {
             <button 
               onClick={toggleMinimize}
               className="p-1 rounded-full hover:bg-balmville-lightTeal/30"
+              aria-label={minimized ? "Expand chat" : "Minimize chat"}
             >
               <ChevronUp 
                 size={18} 
@@ -231,6 +233,7 @@ const ChatbotFAQ = () => {
                   <button
                     onClick={handleSendMessage}
                     className="bg-balmville-gold text-balmville-teal py-2 px-3 rounded-r-md hover:bg-balmville-lightGold focus:outline-none"
+                    aria-label="Send message"
                   >
                     <Send size={18} />
                   </button>
