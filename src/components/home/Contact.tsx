@@ -181,8 +181,11 @@ const Contact = () => {
             
             <div className="mt-10">
               <h4 className="text-xl text-balmville-gold mb-4">Strategic Partners</h4>
-              <ul className="space-y-2 text-white/80">
-                <li>• FSD Kenya</li>
+              <ul className="space-y-4 text-white/80">
+                <li className="flex items-center">
+                  <img src="/lovable-uploads/b31cedfa-3da1-4436-8930-b9a2af0349da.png" alt="FSD Kenya Logo" className="w-8 h-8 mr-3" />
+                  FSD Kenya
+                </li>
                 <li>• Absa Bank Kenya PLC</li>
                 <li>• Fitzrovian Africa Business Advisory</li>
               </ul>
