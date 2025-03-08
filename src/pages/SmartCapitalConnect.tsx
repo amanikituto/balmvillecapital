@@ -4,6 +4,7 @@ import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import StartupForm from '../components/smartcapital/StartupForm';
 import InvestorForm from '../components/smartcapital/InvestorForm';
+import ChatbotFAQ from '../components/smartcapital/ChatbotFAQ';
 import { ChevronDown } from 'lucide-react';
 
 const SmartCapitalConnect = () => {
@@ -142,6 +143,7 @@ const SmartCapitalConnect = () => {
         </section>
       </main>
       <Footer />
+      <ChatbotFAQ />
     </div>
   );
 };
