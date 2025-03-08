@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, BarChart3, LineChart, PieChart, TrendingUp } from 'lucide-react';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -51,14 +51,57 @@ const Hero = () => {
             </button>
           </div>
           
-          {/* Logo Display */}
+          {/* Financial Chart Visual */}
           <div className={`flex justify-center transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>
-            <div className="w-full max-w-md">
-              <img 
-                src="/lovable-uploads/0b8cbd33-b211-431b-bdf0-2d70eb354bac.png" 
-                alt="Balmville Capital Ltd Logo" 
-                className="w-full h-auto"
-              />
+            <div className="w-full max-w-md bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 shadow-xl">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-xl font-medium text-white">Financial Performance</h3>
+                <div className="flex space-x-2">
+                  <TrendingUp className="h-5 w-5 text-balmville-gold" />
+                  <LineChart className="h-5 w-5 text-balmville-gold" />
+                  <BarChart3 className="h-5 w-5 text-balmville-gold" />
+                </div>
+              </div>
+              
+              <div className="space-y-6">
+                {/* Stylized Chart */}
+                <div className="h-48 flex items-end space-x-2">
+                  {[35, 45, 30, 60, 75, 65, 85, 90, 70, 80].map((height, index) => (
+                    <div key={index} className="flex-1 flex flex-col items-center">
+                      <div 
+                        className="w-full bg-gradient-to-t from-balmville-gold/60 to-balmville-gold rounded-t-sm"
+                        style={{ height: `${height}%`, transition: `height 1s ease-out ${0.1 * index}s` }}
+                      ></div>
+                      <div className="w-full h-px bg-white/20 mt-1"></div>
+                      <span className="text-xs text-white/60 mt-1">Q{index + 1}</span>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="bg-white/5 p-3 rounded-lg">
+                    <div className="flex items-center justify-between">
+                      <span className="text-white/80 text-sm">Growth</span>
+                      <TrendingUp className="h-4 w-4 text-green-400" />
+                    </div>
+                    <p className="text-xl text-white font-medium mt-1">+24.8%</p>
+                  </div>
+                  <div className="bg-white/5 p-3 rounded-lg">
+                    <div className="flex items-center justify-between">
+                      <span className="text-white/80 text-sm">Revenue</span>
+                      <BarChart3 className="h-4 w-4 text-balmville-gold" />
+                    </div>
+                    <p className="text-xl text-white font-medium mt-1">$2.4M</p>
+                  </div>
+                  <div className="bg-white/5 p-3 rounded-lg">
+                    <div className="flex items-center justify-between">
+                      <span className="text-white/80 text-sm">ROI</span>
+                      <PieChart className="h-4 w-4 text-blue-400" />
+                    </div>
+                    <p className="text-xl text-white font-medium mt-1">32.5%</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

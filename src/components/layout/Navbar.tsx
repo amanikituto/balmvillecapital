@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, TrendingUp } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
@@ -61,6 +61,7 @@ const Navbar = () => {
               navigate('/');
             }}
           >
+            <TrendingUp className="h-6 w-6 text-balmville-gold mr-2" />
             <span className="text-2xl font-serif font-bold text-balmville-gold">Balmville</span>
             <span className="text-2xl font-serif text-white ml-1">Capital</span>
           </a>
