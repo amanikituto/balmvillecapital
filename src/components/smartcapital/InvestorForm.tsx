@@ -22,7 +22,6 @@ const InvestorForm = () => {
     email: '',
     phoneNumber: '',
     investmentCriteria: '',
-    agreeToPay: false,
     agreeToTerms: false,
   });
   
@@ -57,12 +56,11 @@ const InvestorForm = () => {
       !form.preferredStage ||
       !form.email ||
       !form.phoneNumber ||
-      !form.agreeToPay ||
       !form.agreeToTerms
     ) {
       toast({
         title: "Required Fields Missing",
-        description: "Please fill in all required fields and accept both the payment and terms conditions.",
+        description: "Please fill in all required fields and accept the terms conditions.",
         variant: "destructive",
       });
       return false;
@@ -109,7 +107,6 @@ const InvestorForm = () => {
         email: '',
         phoneNumber: '',
         investmentCriteria: '',
-        agreeToPay: false,
         agreeToTerms: false,
       });
       setIsSubmitting(false);
@@ -325,29 +322,6 @@ const InvestorForm = () => {
             className="w-full bg-white/10 border border-balmville-gold/30 rounded-md p-3 text-white focus:outline-none focus:border-balmville-gold"
             placeholder="Share any specific criteria, requirements, or preferences for your investments"
           ></textarea>
-        </div>
-        
-        <div className="p-4 bg-balmville-gold/10 rounded-md border border-balmville-gold/30">
-          <h4 className="text-lg font-medium text-white mb-2">Verification Fee</h4>
-          <p className="text-white/80 mb-4">
-            A $10 verification fee is required to process your investor profile. This helps us ensure
-            only serious investors are included in our network and supports our matching services.
-          </p>
-          
-          <div className="flex items-start mb-2">
-            <input
-              type="checkbox"
-              id="agreeToPay"
-              name="agreeToPay"
-              checked={form.agreeToPay}
-              onChange={handleCheckboxChange}
-              className="mt-1 mr-3"
-              required
-            />
-            <label htmlFor="agreeToPay" className="text-white">
-              I agree to pay the $10 verification fee upon submission
-            </label>
-          </div>
         </div>
         
         <div className="flex items-start">
