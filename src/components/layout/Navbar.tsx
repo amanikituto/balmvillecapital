@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, TrendingUp } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
@@ -61,9 +61,15 @@ const Navbar = () => {
               navigate('/');
             }}
           >
-            <TrendingUp className="h-6 w-6 text-balmville-gold mr-2" />
-            <span className="text-2xl font-serif font-bold text-balmville-gold">Balmville</span>
-            <span className="text-2xl font-serif text-white ml-1">Capital</span>
+            <img 
+              src="/lovable-uploads/a8dd2986-dca3-432d-b4c8-c0ea8d93ce20.png" 
+              alt="Balmville Capital Logo" 
+              className="h-10 mr-3" 
+            />
+            <div className="flex flex-col items-start">
+              <span className="text-2xl font-serif font-bold text-balmville-gold">Balmville</span>
+              <span className="text-2xl font-serif text-white -mt-1">Capital</span>
+            </div>
           </a>
 
           {/* Desktop Navigation */}
