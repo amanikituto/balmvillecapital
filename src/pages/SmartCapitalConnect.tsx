@@ -93,11 +93,11 @@ const SmartCapitalConnect = () => {
                         }
                       }}
                     >
-                      <span className="text-lg font-medium text-white">How does the matching process work?</span>
+                      <span className="text-lg font-medium text-white">Why is there a $10 registration fee for startups?</span>
                       <ChevronDown className="h-5 w-5 text-balmville-gold" />
                     </button>
                     <div className="mt-2 text-white/80 hidden">
-                      Our team manually reviews all applications and matches startups with investors based on industry, investment size, business stage, and other relevant criteria. All matches are curated to ensure the highest probability of successful partnerships.
+                      The fee ensures that only committed startups apply, allowing us to maintain a high-quality, investor-ready pipeline. It also covers administrative costs and enables us to provide curated matchmaking rather than an open-access platform.
                     </div>
                   </div>
                   
@@ -111,14 +111,71 @@ const SmartCapitalConnect = () => {
                         }
                       }}
                     >
-                      <span className="text-lg font-medium text-white">Is my information kept confidential?</span>
+                      <span className="text-lg font-medium text-white">Do investors have to pay a fee?</span>
                       <ChevronDown className="h-5 w-5 text-balmville-gold" />
                     </button>
                     <div className="mt-2 text-white/80 hidden">
-                      Yes, all information submitted is kept strictly confidential. Startups and investors cannot see each other's information directly. Balmville Capital acts as an intermediary to protect your privacy and secure your data.
+                      No, the registration fee applies only to startups. Balmville Capital works directly with investors to source and vet high-potential opportunities.
                     </div>
                   </div>
                   
+                  <div className="border-b border-balmville-gold/30 pb-4">
+                    <button 
+                      className="flex justify-between items-center w-full text-left"
+                      onClick={(e) => {
+                        const target = e.currentTarget.nextElementSibling;
+                        if (target) {
+                          target.classList.toggle('hidden');
+                        }
+                      }}
+                    >
+                      <span className="text-lg font-medium text-white">Will I have direct access to investors?</span>
+                      <ChevronDown className="h-5 w-5 text-balmville-gold" />
+                    </button>
+                    <div className="mt-2 text-white/80 hidden">
+                      No, Balmville Capital serves as the trusted intermediary to ensure quality matchups between startups and investors. We carefully review each startup's profile, funding needs, and growth potential before introducing them to relevant investors.
+                    </div>
+                  </div>
+
+                  <div className="border-b border-balmville-gold/30 pb-4">
+                    <button 
+                      className="flex justify-between items-center w-full text-left"
+                      onClick={(e) => {
+                        const target = e.currentTarget.nextElementSibling;
+                        if (target) {
+                          target.classList.toggle('hidden');
+                        }
+                      }}
+                    >
+                      <span className="text-lg font-medium text-white">What do I get for the $10 fee?</span>
+                      <ChevronDown className="h-5 w-5 text-balmville-gold" />
+                    </button>
+                    <div className="mt-2 text-white/80 hidden">
+                      By registering, you receive:<br/>
+                      - Curated Investor Matchmaking – We connect you with investors who align with your industry and funding stage.<br/>
+                      - Expert Review – Our team evaluates your startup to ensure it's investor-ready.<br/>
+                      - Increased Credibility – Investors prefer vetted startups, improving your chances of securing funding.
+                    </div>
+                  </div>
+
+                  <div className="border-b border-balmville-gold/30 pb-4">
+                    <button 
+                      className="flex justify-between items-center w-full text-left"
+                      onClick={(e) => {
+                        const target = e.currentTarget.nextElementSibling;
+                        if (target) {
+                          target.classList.toggle('hidden');
+                        }
+                      }}
+                    >
+                      <span className="text-lg font-medium text-white">How long will my information remain in the database?</span>
+                      <ChevronDown className="h-5 w-5 text-balmville-gold" />
+                    </button>
+                    <div className="mt-2 text-white/80 hidden">
+                      Your startup profile will remain in our database for one year from the date of registration. During this period, we will actively consider your startup for potential investor matchups.
+                    </div>
+                  </div>
+
                   <div className="border-b border-balmville-gold/30 pb-4">
                     <button 
                       className="flex justify-between items-center w-full text-left"
@@ -134,6 +191,24 @@ const SmartCapitalConnect = () => {
                     </button>
                     <div className="mt-2 text-white/80 hidden">
                       After submission, you'll receive a confirmation email. Our team will review your application, and if it meets our criteria, we'll contact you with potential matches or for additional information. You can also check your application status by contacting us directly.
+                    </div>
+                  </div>
+
+                  <div className="border-b border-balmville-gold/30 pb-4">
+                    <button 
+                      className="flex justify-between items-center w-full text-left"
+                      onClick={(e) => {
+                        const target = e.currentTarget.nextElementSibling;
+                        if (target) {
+                          target.classList.toggle('hidden');
+                        }
+                      }}
+                    >
+                      <span className="text-lg font-medium text-white">Is my information kept confidential?</span>
+                      <ChevronDown className="h-5 w-5 text-balmville-gold" />
+                    </button>
+                    <div className="mt-2 text-white/80 hidden">
+                      Yes, all information submitted is kept strictly confidential. Startups and investors cannot see each other's information directly. Balmville Capital acts as an intermediary to protect your privacy and secure your data.
                     </div>
                   </div>
                 </div>
