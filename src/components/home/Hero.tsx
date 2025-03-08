@@ -31,7 +31,7 @@ const Hero = () => {
           {/* Text Content */}
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>
             <div className="inline-block px-4 py-1 rounded-full border border-balmville-gold/30 bg-balmville-gold/10 text-balmville-gold mb-6">
-              <p className="text-sm font-medium">Financial Consultancy</p>
+              <p className="text-sm font-medium">Boutique Financial Consultancy</p>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight mb-6">
