@@ -190,7 +190,10 @@ const Contact = () => {
                   <img src="/lovable-uploads/753c4c71-4eae-44b4-abed-68024d47d5ab.png" alt="Absa Bank Logo" className="w-8 h-8 mr-3" />
                   Absa Bank Kenya PLC
                 </li>
-                <li>• Fitzrovian Africa Business Advisory</li>
+                <li className="flex items-center">
+                  <img src="/lovable-uploads/fb9eb40e-0b5a-45a9-877f-374156677676.png" alt="Fitzrovian Africa Logo" className="w-8 h-8 mr-3" />
+                  Fitzrovian Africa Business Advisory
+                </li>
               </ul>
             </div>
           </div>
