@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, LogOut } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
+import ChangeCredentialsModal from './ChangeCredentialsModal';
 
 const AdminHeader = () => {
   const navigate = useNavigate();
@@ -36,6 +37,7 @@ const AdminHeader = () => {
               Logged in as <span className="text-balmville-gold">{user.username}</span>
             </span>
           )}
+          <ChangeCredentialsModal />
           <Button 
             variant="outline" 
             size="sm" 
