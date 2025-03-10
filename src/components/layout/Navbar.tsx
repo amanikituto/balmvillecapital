@@ -1,5 +1,6 @@
+
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ShieldCheck } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
@@ -97,6 +98,13 @@ const Navbar = () => {
             >
               Smart Capital
             </a>
+            <a 
+              onClick={() => navigateTo('/admin-login')}
+              className="flex items-center nav-link cursor-pointer"
+            >
+              <ShieldCheck className="h-4 w-4 mr-1" />
+              Admin
+            </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -138,6 +146,13 @@ const Navbar = () => {
               className={`nav-link cursor-pointer ${location.pathname === '/smart-capital-connect' ? 'opacity-100' : ''}`}
             >
               Smart Capital
+            </a>
+            <a 
+              onClick={() => navigateTo('/admin-login')} 
+              className="flex items-center nav-link cursor-pointer"
+            >
+              <ShieldCheck className="h-4 w-4 mr-1" />
+              Admin
             </a>
           </div>
         </div>
