@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useToast } from "@/hooks/use-toast";
+import { useSubmissions } from '@/contexts/SubmissionsContext';
 
 type BusinessStage = 'Early' | 'Growth' | 'Scaling';
 type FundingRange = '$30,000 - $50,000' | '$50,000 - $100,000' | '$100,000 - $250,000' | '$250,000 - $500,000' | '$500,000+';
@@ -8,6 +9,7 @@ type Industry = 'Technology' | 'Fintech' | 'Healthcare' | 'Education' | 'Retail'
 
 const StartupForm = () => {
   const { toast } = useToast();
+  const { addStartupSubmission } = useSubmissions();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [step, setStep] = useState(1);
   const [form, setForm] = useState({
@@ -109,32 +111,44 @@ const StartupForm = () => {
     
     setIsSubmitting(true);
     
-    // Simulating form submission - In a real application, this would be an API call
-    setTimeout(() => {
-      toast({
-        title: "Application Submitted",
-        description: "Your startup application has been received. We'll review it and contact you soon.",
-      });
-      
-      // Reset form
-      setForm({
-        companyName: '',
-        registrationNumber: '',
-        industry: '' as Industry,
-        businessStage: '' as BusinessStage,
-        annualRevenue: '',
-        fundingRequired: '' as FundingRange,
-        fundUse: '' as FundUse,
-        businessModel: '',
-        email: '',
-        phoneNumber: '',
-        agreeToPay: false,
-        agreeToTerms: false,
-      });
-      setAttachedFile(null);
-      setStep(1);
-      setIsSubmitting(false);
-    }, 1500);
+    // Save submission to context & localStorage
+    addStartupSubmission({
+      companyName: form.companyName,
+      registrationNumber: form.registrationNumber,
+      industry: form.industry,
+      businessStage: form.businessStage,
+      annualRevenue: form.annualRevenue,
+      fundingRequired: form.fundingRequired,
+      fundUse: form.fundUse,
+      businessModel: form.businessModel,
+      email: form.email,
+      phoneNumber: form.phoneNumber
+    });
+    
+    // Show success toast
+    toast({
+      title: "Application Submitted",
+      description: "Your startup application has been received. We'll review it and contact you soon.",
+    });
+    
+    // Reset form
+    setForm({
+      companyName: '',
+      registrationNumber: '',
+      industry: '' as Industry,
+      businessStage: '' as BusinessStage,
+      annualRevenue: '',
+      fundingRequired: '' as FundingRange,
+      fundUse: '' as FundUse,
+      businessModel: '',
+      email: '',
+      phoneNumber: '',
+      agreeToPay: false,
+      agreeToTerms: false,
+    });
+    setAttachedFile(null);
+    setStep(1);
+    setIsSubmitting(false);
   };
   
   return (

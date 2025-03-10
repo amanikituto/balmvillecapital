@@ -1,6 +1,6 @@
-
 import { useState } from 'react';
 import { useToast } from "@/hooks/use-toast";
+import { useSubmissions } from '@/contexts/SubmissionsContext';
 
 type InvestmentFocus = 'Technology' | 'Fintech' | 'Healthcare' | 'Education' | 'Retail' | 'Agriculture' | 'Manufacturing' | 'Hospitality' | 'Any' | 'Other';
 type InvestmentType = 'Equity' | 'Debt' | 'Hybrid' | 'Convertible Note' | 'Revenue Sharing';
@@ -9,6 +9,7 @@ type InvestmentRange = '$30,000 - $50,000' | '$50,000 - $100,000' | '$100,000 - 
 
 const InvestorForm = () => {
   const { toast } = useToast();
+  const { addInvestorSubmission } = useSubmissions();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState({
     investorName: '',
@@ -87,30 +88,46 @@ const InvestorForm = () => {
     
     setIsSubmitting(true);
     
-    // Simulating form submission - In a real application, this would be an API call
-    setTimeout(() => {
-      toast({
-        title: "Investor Profile Submitted",
-        description: "Your investor profile has been received. We'll review it and contact you with potential opportunities.",
-      });
-      
-      // Reset form
-      setForm({
-        investorName: '',
-        companyName: '',
-        investmentRange: '' as InvestmentRange,
-        customRange: '',
-        investmentFocus: [] as InvestmentFocus[],
-        otherFocus: '',
-        investmentType: '' as InvestmentType,
-        preferredStage: '' as BusinessStage,
-        email: '',
-        phoneNumber: '',
-        investmentCriteria: '',
-        agreeToTerms: false,
-      });
-      setIsSubmitting(false);
-    }, 1500);
+    // Determine the final investment range (consider custom range if selected)
+    const finalInvestmentRange = form.investmentRange === 'Custom' && form.customRange 
+      ? form.customRange 
+      : form.investmentRange;
+
+    // Save submission to context & localStorage
+    addInvestorSubmission({
+      investorName: form.investorName,
+      companyName: form.companyName,
+      investmentRange: finalInvestmentRange,
+      investmentFocus: form.investmentFocus,
+      investmentType: form.investmentType,
+      preferredStage: form.preferredStage,
+      email: form.email,
+      phoneNumber: form.phoneNumber,
+      investmentCriteria: form.investmentCriteria
+    });
+    
+    // Show success toast
+    toast({
+      title: "Investor Profile Submitted",
+      description: "Your investor profile has been received. We'll review it and contact you with potential opportunities.",
+    });
+    
+    // Reset form
+    setForm({
+      investorName: '',
+      companyName: '',
+      investmentRange: '' as InvestmentRange,
+      customRange: '',
+      investmentFocus: [] as InvestmentFocus[],
+      otherFocus: '',
+      investmentType: '' as InvestmentType,
+      preferredStage: '' as BusinessStage,
+      email: '',
+      phoneNumber: '',
+      investmentCriteria: '',
+      agreeToTerms: false,
+    });
+    setIsSubmitting(false);
   };
   
   return (

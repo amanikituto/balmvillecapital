@@ -2,14 +2,15 @@
 import { useState, useEffect } from 'react';
 import AdminHeader from '../components/admin/AdminHeader';
 import SubmissionTable from '../components/admin/SubmissionTable';
-import { mockStartupSubmissions, mockInvestorSubmissions } from '../data/mockData';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from '@/contexts/AuthContext';
+import { useSubmissions } from '@/contexts/SubmissionsContext';
 import { useNavigate } from 'react-router-dom';
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState<'startups' | 'investors'>('startups');
   const { isAuthenticated } = useAuth();
+  const { startupSubmissions, investorSubmissions } = useSubmissions();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,22 +31,22 @@ const AdminDashboard = () => {
                   value="startups"
                   className="data-[state=active]:bg-balmville-gold data-[state=active]:text-balmville-teal"
                 >
-                  Startups
+                  Startups ({startupSubmissions.length})
                 </TabsTrigger>
                 <TabsTrigger 
                   value="investors"
                   className="data-[state=active]:bg-balmville-gold data-[state=active]:text-balmville-teal"
                 >
-                  Investors
+                  Investors ({investorSubmissions.length})
                 </TabsTrigger>
               </TabsList>
               
               <TabsContent value="startups" className="mt-0">
-                <SubmissionTable submissions={mockStartupSubmissions} type="startup" />
+                <SubmissionTable submissions={startupSubmissions} type="startup" />
               </TabsContent>
               
               <TabsContent value="investors" className="mt-0">
-                <SubmissionTable submissions={mockInvestorSubmissions} type="investor" />
+                <SubmissionTable submissions={investorSubmissions} type="investor" />
               </TabsContent>
             </Tabs>
           </div>

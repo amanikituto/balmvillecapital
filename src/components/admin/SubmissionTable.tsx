@@ -112,36 +112,36 @@ const SubmissionTable = ({ submissions, type }: SubmissionTableProps) => {
         </DropdownMenu>
       </div>
       
-      <div className="rounded-lg overflow-hidden border border-balmville-gold/30">
-        <table className="min-w-full divide-y divide-balmville-gold/30">
-          <thead className="bg-balmville-lightTeal">
-            <tr>
-              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                {type === 'startup' ? 'Company' : 'Investor'}
-              </th>
-              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                {type === 'startup' ? 'Industry' : 'Focus'}
-              </th>
-              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                {type === 'startup' ? 'Funding Needed' : 'Investment Range'}
-              </th>
-              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                Contact
-              </th>
-              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                Date
-              </th>
-              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                Status
-              </th>
-              <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-white uppercase tracking-wider">
-                Action
-              </th>
-            </tr>
-          </thead>
-          <tbody className="bg-balmville-teal divide-y divide-balmville-gold/30">
-            {filteredSubmissions.length > 0 ? (
-              filteredSubmissions.map((submission) => (
+      {filteredSubmissions.length > 0 ? (
+        <div className="rounded-lg overflow-hidden border border-balmville-gold/30">
+          <table className="min-w-full divide-y divide-balmville-gold/30">
+            <thead className="bg-balmville-lightTeal">
+              <tr>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                  {type === 'startup' ? 'Company' : 'Investor'}
+                </th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                  {type === 'startup' ? 'Industry' : 'Focus'}
+                </th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                  {type === 'startup' ? 'Funding Needed' : 'Investment Range'}
+                </th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                  Contact
+                </th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                  Date
+                </th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                  Status
+                </th>
+                <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-white uppercase tracking-wider">
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-balmville-teal divide-y divide-balmville-gold/30">
+              {filteredSubmissions.map((submission) => (
                 <tr key={submission.id} className="hover:bg-balmville-teal/70 transition-colors">
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm font-medium text-white">
@@ -191,17 +191,22 @@ const SubmissionTable = ({ submissions, type }: SubmissionTableProps) => {
                     </Button>
                   </td>
                 </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan={7} className="px-6 py-10 text-center text-white">
-                  No {statusFilter !== 'all' ? statusFilter : ''} submissions found.
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <div className="bg-balmville-lightTeal/20 border border-balmville-gold/30 rounded-lg p-8 text-center">
+          <p className="text-white text-lg">
+            No {statusFilter !== 'all' ? statusFilter : ''} submissions found.
+          </p>
+          <p className="text-white/60 mt-2">
+            {statusFilter === 'all' 
+              ? `When ${type === 'startup' ? 'startups' : 'investors'} submit their information through the Smart Capital Connect page, they will appear here.`
+              : `No ${type === 'startup' ? 'startups' : 'investors'} with ${statusFilter} status.`}
+          </p>
+        </div>
+      )}
     </div>
   );
 };
