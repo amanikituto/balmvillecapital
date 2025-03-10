@@ -65,7 +65,7 @@ const Services = () => {
             title="AI-Driven Credit Process Efficiency"
             description="Implementing AI-powered tools to enhance credit risk assessment, automate decision-making, and optimize loan portfolio performance."
             delay={600}
-            imageUrl="https://images.unsplash.com/photo-1677442135073-d849eb1d8ec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            imageUrl="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
           />
         </div>
       </div>
