@@ -30,10 +30,6 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-block px-4 py-1 rounded-full border border-balmville-gold/30 bg-balmville-gold/10 text-balmville-gold mb-8">
-              <p className="text-sm font-medium">Boutique Financial Consultancy</p>
-            </div>
-            
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight mb-8">
               Transforming <span className="gradient-text">Businesses</span> Through Strategic <span className="gradient-text">Financial</span> Advisory
             </h1>
