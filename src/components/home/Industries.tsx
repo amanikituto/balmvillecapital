@@ -16,7 +16,7 @@ const Industries = () => {
     },
     {
       title: "Manufacturing & Retail",
-      backgroundImage: "public/lovable-uploads/0a6c15ea-a05e-472d-a06e-90ffcfc374df.png"
+      backgroundImage: "public/lovable-uploads/ca5e6620-4081-4f93-aa4b-dbd3ca7939dc.png"
     },
     {
       title: "Fintech & Digital Transformation",
