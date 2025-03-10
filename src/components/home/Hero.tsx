@@ -21,7 +21,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-balmville-teal flex items-center">
+    <div className="relative min-h-screen bg-balmville-teal flex items-center pt-20 md:pt-24">
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-balmville-teal/90 to-balmville-teal/100"></div>
       
@@ -30,15 +30,15 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-block px-4 py-1 rounded-full border border-balmville-gold/30 bg-balmville-gold/10 text-balmville-gold mb-6">
+            <div className="inline-block px-4 py-1 rounded-full border border-balmville-gold/30 bg-balmville-gold/10 text-balmville-gold mb-8">
               <p className="text-sm font-medium">Boutique Financial Consultancy</p>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight mb-8">
               Transforming <span className="gradient-text">Businesses</span> Through Strategic <span className="gradient-text">Financial</span> Advisory
             </h1>
             
-            <p className="text-white/80 text-lg mb-8 max-w-xl">
+            <p className="text-white/80 text-lg mb-10 max-w-xl">
               Empowering businesses with cutting-edge financial insights and strategies that enhance profitability, optimize processes, and enable sustainable growth.
             </p>
             
