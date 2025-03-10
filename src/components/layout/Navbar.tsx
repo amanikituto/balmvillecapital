@@ -67,7 +67,7 @@ const Navbar = () => {
               className="h-10 mr-3" 
             />
             <div className="flex flex-col items-start">
-              <span className="text-2xl font-serif font-bold text-balmville-gold">Balmville</span>
+              <span className="text-2xl font-serif font-bold bg-gradient-to-r from-balmville-gold to-balmville-lightGold bg-clip-text text-transparent">Balmville</span>
               <span className="text-2xl font-serif text-white -mt-1">Capital</span>
             </div>
           </a>
