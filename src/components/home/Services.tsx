@@ -25,6 +25,7 @@ const Services = () => {
             title="Financial Modeling & Valuation"
             description="In-depth financial projections, business valuation, and investment analysis to support strategic decision-making."
             delay={100}
+            imageUrl="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
           />
           
           <ServiceCard 
@@ -32,6 +33,7 @@ const Services = () => {
             title="Product Optimization"
             description="Enhancing the profitability and efficiency of financial products through research, design, and strategy implementation."
             delay={200}
+            imageUrl="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
           />
           
           <ServiceCard 
@@ -39,6 +41,7 @@ const Services = () => {
             title="Business Restructuring"
             description="Assisting businesses in turnaround strategies, operational efficiency, and financial restructuring to improve profitability."
             delay={300}
+            imageUrl="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
           />
           
           <ServiceCard 
@@ -46,6 +49,7 @@ const Services = () => {
             title="Process Improvement"
             description="Streamlining business operations by identifying inefficiencies and implementing best practices for maximum productivity."
             delay={400}
+            imageUrl="https://images.unsplash.com/photo-1569017388730-020b5f80a004?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
           />
           
           <ServiceCard 
@@ -53,6 +57,7 @@ const Services = () => {
             title="SME Financing Advisory"
             description="Assisting small and medium-sized enterprises in accessing financing, structuring deals, and improving creditworthiness."
             delay={500}
+            imageUrl="https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
           />
           
           <ServiceCard 
@@ -60,6 +65,7 @@ const Services = () => {
             title="AI-Driven Credit Process Efficiency"
             description="Implementing AI-powered tools to enhance credit risk assessment, automate decision-making, and optimize loan portfolio performance."
             delay={600}
+            imageUrl="https://images.unsplash.com/photo-1677442135073-d849eb1d8ec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
           />
         </div>
       </div>

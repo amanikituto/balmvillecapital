@@ -7,9 +7,16 @@ interface ServiceCardProps {
   title: string;
   description: string;
   delay?: number;
+  imageUrl?: string;
 }
 
-const ServiceCard = ({ icon: Icon, title, description, delay = 0 }: ServiceCardProps) => {
+const ServiceCard = ({ 
+  icon: Icon, 
+  title, 
+  description, 
+  delay = 0,
+  imageUrl 
+}: ServiceCardProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -42,6 +49,15 @@ const ServiceCard = ({ icon: Icon, title, description, delay = 0 }: ServiceCardP
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
+      {imageUrl && (
+        <div className="mb-4 overflow-hidden rounded-lg h-40">
+          <img 
+            src={imageUrl} 
+            alt={title} 
+            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+          />
+        </div>
+      )}
       <div className="mb-6 p-3 inline-flex items-center justify-center rounded-full bg-balmville-gold/20">
         <Icon className="h-6 w-6 text-balmville-gold" />
       </div>
