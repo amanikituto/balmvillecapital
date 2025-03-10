@@ -8,7 +8,7 @@ const Industries = () => {
   const industries = [
     {
       title: "SMEs & Startups",
-      backgroundImage: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+      backgroundImage: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
     },
     {
       title: "Banks & MFIs",
@@ -16,7 +16,7 @@ const Industries = () => {
     },
     {
       title: "Manufacturing & Retail",
-      backgroundImage: "https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+      backgroundImage: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
     },
     {
       title: "Fintech & Digital Transformation",
