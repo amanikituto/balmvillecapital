@@ -8,7 +8,7 @@ const Industries = () => {
   const industries = [
     {
       title: "SMEs & Startups",
-      backgroundImage: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+      backgroundImage: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
     },
     {
       title: "Banks & MFIs",
