@@ -66,9 +66,9 @@ const Navbar = () => {
               alt="Balmville Capital Logo" 
               className="h-10 mr-3" 
             />
-            <div className="flex flex-col items-start">
+            <div className="flex items-center">
               <span className="text-2xl font-serif font-bold bg-gradient-to-r from-balmville-gold to-balmville-lightGold bg-clip-text text-transparent">Balmville</span>
-              <span className="text-2xl font-serif text-white -mt-1">Capital</span>
+              <span className="text-2xl font-serif text-white ml-2">Capital</span>
             </div>
           </a>
 
