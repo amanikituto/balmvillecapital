@@ -40,7 +40,7 @@ const IndustryCard = ({ title, backgroundImage, delay = 0 }: IndustryCardProps) 
         isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
       }`}
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${backgroundImage})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
