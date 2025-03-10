@@ -1,17 +1,8 @@
 
-import { useState } from 'react';
-import { useToast } from "@/hooks/use-toast";
-
-type BusinessStage = 'Early' | 'Growth' | 'Scaling';
-type Industry = 'Technology' | 'Fintech' | 'Healthcare' | 'Education' | 'Retail' | 'Agriculture' | 'Manufacturing' | 'Hospitality' | 'Other';
+import { type StartupFormValues } from './formValidation';
 
 type CompanyInfoStepProps = {
-  form: {
-    companyName: string;
-    registrationNumber: string;
-    industry: Industry;
-    businessStage: BusinessStage;
-  };
+  form: StartupFormValues;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
   handleFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   attachedFile: File | null;

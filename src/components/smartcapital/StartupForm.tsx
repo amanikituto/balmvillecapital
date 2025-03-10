@@ -7,12 +7,16 @@ import BusinessDetailsStep from './startup/BusinessDetailsStep';
 import ContactVerificationStep from './startup/ContactVerificationStep';
 import ProgressIndicator from './startup/ProgressIndicator';
 import FormNavigationButtons from './startup/FormNavigationButtons';
-import { validateStep1, validateStep2, validateStep3, type StartupFormValues } from './startup/formValidation';
-
-type BusinessStage = 'Early' | 'Growth' | 'Scaling';
-type FundingRange = '$30,000 - $50,000' | '$50,000 - $100,000' | '$100,000 - $250,000' | '$250,000 - $500,000' | '$500,000+';
-type FundUse = 'Expansion' | 'R&D' | 'Marketing' | 'Working Capital' | 'Debt Refinancing' | 'Other';
-type Industry = 'Technology' | 'Fintech' | 'Healthcare' | 'Education' | 'Retail' | 'Agriculture' | 'Manufacturing' | 'Hospitality' | 'Other';
+import { 
+  validateStep1, 
+  validateStep2, 
+  validateStep3, 
+  type StartupFormValues,
+  type BusinessStage,
+  type FundingRange,
+  type FundUse,
+  type Industry
+} from './startup/formValidation';
 
 const StartupForm = () => {
   const { toast } = useToast();

@@ -1,14 +1,19 @@
 
 import { useToast } from "@/hooks/use-toast";
 
+export type BusinessStage = 'Early' | 'Growth' | 'Scaling';
+export type FundingRange = '$30,000 - $50,000' | '$50,000 - $100,000' | '$100,000 - $250,000' | '$250,000 - $500,000' | '$500,000+';
+export type FundUse = 'Expansion' | 'R&D' | 'Marketing' | 'Working Capital' | 'Debt Refinancing' | 'Other';
+export type Industry = 'Technology' | 'Fintech' | 'Healthcare' | 'Education' | 'Retail' | 'Agriculture' | 'Manufacturing' | 'Hospitality' | 'Other';
+
 export type StartupFormValues = {
   companyName: string;
   registrationNumber: string;
-  industry: string;
-  businessStage: string;
+  industry: Industry;
+  businessStage: BusinessStage;
   annualRevenue: string;
-  fundingRequired: string;
-  fundUse: string;
+  fundingRequired: FundingRange;
+  fundUse: FundUse;
   businessModel: string;
   email: string;
   phoneNumber: string;

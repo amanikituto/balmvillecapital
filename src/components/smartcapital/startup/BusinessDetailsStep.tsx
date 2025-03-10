@@ -1,16 +1,9 @@
 
 import React from 'react';
-
-type FundingRange = '$30,000 - $50,000' | '$50,000 - $100,000' | '$100,000 - $250,000' | '$250,000 - $500,000' | '$500,000+';
-type FundUse = 'Expansion' | 'R&D' | 'Marketing' | 'Working Capital' | 'Debt Refinancing' | 'Other';
+import { type FundingRange, type FundUse, type StartupFormValues } from './formValidation';
 
 type BusinessDetailsStepProps = {
-  form: {
-    annualRevenue: string;
-    fundingRequired: FundingRange;
-    fundUse: FundUse;
-    businessModel: string;
-  };
+  form: StartupFormValues;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
 }
 
