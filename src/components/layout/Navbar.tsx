@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Menu, X, ShieldCheck } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -48,7 +49,7 @@ const Navbar = () => {
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'blur-bg py-4' : 'bg-transparent py-6'
+        isScrolled ? 'bg-balmville-teal py-4' : 'bg-transparent py-6'
       }`}
       style={{ position: 'fixed', width: '100%' }}
     >
@@ -123,7 +124,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 blur-bg">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-balmville-teal">
           <div className="container-custom py-4 flex flex-col space-y-4">
             {isHome ? (
               <>
