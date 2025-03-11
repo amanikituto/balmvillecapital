@@ -11,10 +11,10 @@ const SmartCapitalConnect = () => {
   const [activeTab, setActiveTab] = useState<'startup' | 'investor'>('startup');
 
   return (
-    <div className="min-h-screen flex flex-col bg-balmville-teal">
+    <div className="min-h-screen flex flex-col bg-balmville-teal w-full overflow-hidden">
       <Navbar />
-      <main className="flex-grow pt-24">
-        <section className="section-padding">
+      <main className="flex-grow pt-24 w-full">
+        <section className="section-padding w-full">
           <div className="container-custom">
             <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6">

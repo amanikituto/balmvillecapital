@@ -93,10 +93,11 @@
 
   html {
     scroll-behavior: smooth;
+    @apply overflow-x-hidden;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground min-h-screen w-full overflow-x-hidden;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
