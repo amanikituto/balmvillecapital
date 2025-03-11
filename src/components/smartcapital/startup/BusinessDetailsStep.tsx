@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { type FundingRange, type FundUse, type StartupFormValues } from './formValidation';
+import { type StartupFormValues } from './formValidation';
 
 type BusinessDetailsStepProps = {
   form: StartupFormValues;
