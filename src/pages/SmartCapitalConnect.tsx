@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import StartupForm from '../components/smartcapital/StartupForm';
@@ -9,6 +9,11 @@ import { ChevronDown } from 'lucide-react';
 
 const SmartCapitalConnect = () => {
   const [activeTab, setActiveTab] = useState<'startup' | 'investor'>('startup');
+
+  // Add useEffect to scroll to top when the component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-balmville-teal w-full overflow-hidden">

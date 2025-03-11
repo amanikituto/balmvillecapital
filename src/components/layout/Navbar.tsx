@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X, ShieldCheck } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -43,7 +42,6 @@ const Navbar = () => {
   const navigateTo = (path: string) => {
     navigate(path);
     setIsMenuOpen(false);
-    // Ensure we scroll to the top when navigating to a new page
     window.scrollTo(0, 0);
   };
 
