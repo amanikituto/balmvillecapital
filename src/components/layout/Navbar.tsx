@@ -52,6 +52,7 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? 'blur-bg py-4' : 'bg-transparent py-6'
       }`}
+      style={{ position: 'fixed', width: '100%' }}
     >
       <div className="container-custom">
         <div className="flex items-center justify-between">

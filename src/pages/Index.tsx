@@ -35,9 +35,9 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-balmville-teal">
+    <div className="min-h-screen flex flex-col bg-balmville-teal w-full overflow-hidden">
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow pt-20"> {/* Added padding to account for fixed navbar */}
         <Hero />
         <About />
         <Services />
