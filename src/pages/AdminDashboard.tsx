@@ -17,6 +17,7 @@ const AdminDashboard = () => {
     if (!isAuthenticated) {
       navigate('/admin-login');
     }
+    window.scrollTo(0, 0);
   }, [isAuthenticated, navigate]);
 
   return (
