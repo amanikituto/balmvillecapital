@@ -1,15 +1,13 @@
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
-import StartupForm from '../components/smartcapital/StartupForm';
-import InvestorForm from '../components/smartcapital/InvestorForm';
+import FormSection from '../components/smartcapital/FormSection';
+import HowItWorksSection from '../components/smartcapital/HowItWorksSection';
+import FAQSection from '../components/smartcapital/FAQSection';
 import ChatbotFAQ from '../components/smartcapital/ChatbotFAQ';
-import { ChevronDown } from 'lucide-react';
 
 const SmartCapitalConnect = () => {
-  const [activeTab, setActiveTab] = useState<'startup' | 'investor'>('startup');
-
   // Add useEffect to scroll to top when the component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -31,194 +29,9 @@ const SmartCapitalConnect = () => {
               </p>
             </div>
 
-            <div className="max-w-4xl mx-auto mb-16">
-              <div className="flex flex-col md:flex-row justify-center mb-8 gap-4">
-                <button
-                  onClick={() => setActiveTab('startup')}
-                  className={`py-3 px-6 rounded-lg font-medium text-lg transition-all duration-300 ${
-                    activeTab === 'startup'
-                      ? 'bg-balmville-gold text-balmville-teal'
-                      : 'bg-balmville-lightTeal text-white'
-                  }`}
-                >
-                  For Startups
-                </button>
-                <button
-                  onClick={() => setActiveTab('investor')}
-                  className={`py-3 px-6 rounded-lg font-medium text-lg transition-all duration-300 ${
-                    activeTab === 'investor'
-                      ? 'bg-balmville-gold text-balmville-teal'
-                      : 'bg-balmville-lightTeal text-white'
-                  }`}
-                >
-                  For Investors
-                </button>
-              </div>
-
-              <div className="bg-balmville-lightTeal/50 backdrop-blur-sm rounded-lg shadow-lg p-6 md:p-8">
-                {activeTab === 'startup' ? <StartupForm /> : <InvestorForm />}
-              </div>
-            </div>
-
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-serif font-semibold text-white mb-6">
-                How It <span className="gradient-text">Works</span>
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="bg-balmville-lightTeal/30 p-6 rounded-lg">
-                  <div className="w-12 h-12 rounded-full bg-balmville-gold text-balmville-teal flex items-center justify-center mb-4 mx-auto font-bold text-xl">1</div>
-                  <h3 className="text-xl font-medium text-white mb-2">Submit Your Application</h3>
-                  <p className="text-white/70">Complete the relevant form with your company or investment details.</p>
-                </div>
-                <div className="bg-balmville-lightTeal/30 p-6 rounded-lg">
-                  <div className="w-12 h-12 rounded-full bg-balmville-gold text-balmville-teal flex items-center justify-center mb-4 mx-auto font-bold text-xl">2</div>
-                  <h3 className="text-xl font-medium text-white mb-2">Verification Process</h3>
-                  <p className="text-white/70">Our team reviews and verifies all submissions for quality assurance.</p>
-                </div>
-                <div className="bg-balmville-lightTeal/30 p-6 rounded-lg">
-                  <div className="w-12 h-12 rounded-full bg-balmville-gold text-balmville-teal flex items-center justify-center mb-4 mx-auto font-bold text-xl">3</div>
-                  <h3 className="text-xl font-medium text-white mb-2">Curated Matching</h3>
-                  <p className="text-white/70">We personally match compatible startups and investors based on criteria.</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="max-w-3xl mx-auto">
-              <div className="bg-balmville-lightTeal/30 p-6 md:p-8 rounded-lg mb-8">
-                <h3 className="text-2xl font-serif font-semibold text-white mb-4">Frequently Asked Questions</h3>
-                
-                <div className="space-y-4">
-                  <div className="border-b border-balmville-gold/30 pb-4">
-                    <button 
-                      className="flex justify-between items-center w-full text-left"
-                      onClick={(e) => {
-                        const target = e.currentTarget.nextElementSibling;
-                        if (target) {
-                          target.classList.toggle('hidden');
-                        }
-                      }}
-                    >
-                      <span className="text-lg font-medium text-white">Why is there a $10 registration fee for startups?</span>
-                      <ChevronDown className="h-5 w-5 text-balmville-gold" />
-                    </button>
-                    <div className="mt-2 text-white/80 hidden">
-                      The fee ensures that only committed startups apply, allowing us to maintain a high-quality, investor-ready pipeline. It also covers administrative costs and enables us to provide curated matchmaking rather than an open-access platform.
-                    </div>
-                  </div>
-                  
-                  <div className="border-b border-balmville-gold/30 pb-4">
-                    <button 
-                      className="flex justify-between items-center w-full text-left"
-                      onClick={(e) => {
-                        const target = e.currentTarget.nextElementSibling;
-                        if (target) {
-                          target.classList.toggle('hidden');
-                        }
-                      }}
-                    >
-                      <span className="text-lg font-medium text-white">Do investors have to pay a fee?</span>
-                      <ChevronDown className="h-5 w-5 text-balmville-gold" />
-                    </button>
-                    <div className="mt-2 text-white/80 hidden">
-                      No, the registration fee applies only to startups. Balmville Capital works directly with investors to source and vet high-potential opportunities.
-                    </div>
-                  </div>
-                  
-                  <div className="border-b border-balmville-gold/30 pb-4">
-                    <button 
-                      className="flex justify-between items-center w-full text-left"
-                      onClick={(e) => {
-                        const target = e.currentTarget.nextElementSibling;
-                        if (target) {
-                          target.classList.toggle('hidden');
-                        }
-                      }}
-                    >
-                      <span className="text-lg font-medium text-white">Will I have direct access to investors?</span>
-                      <ChevronDown className="h-5 w-5 text-balmville-gold" />
-                    </button>
-                    <div className="mt-2 text-white/80 hidden">
-                      No, Balmville Capital serves as the trusted intermediary to ensure quality matchups between startups and investors. We carefully review each startup's profile, funding needs, and growth potential before introducing them to relevant investors.
-                    </div>
-                  </div>
-
-                  <div className="border-b border-balmville-gold/30 pb-4">
-                    <button 
-                      className="flex justify-between items-center w-full text-left"
-                      onClick={(e) => {
-                        const target = e.currentTarget.nextElementSibling;
-                        if (target) {
-                          target.classList.toggle('hidden');
-                        }
-                      }}
-                    >
-                      <span className="text-lg font-medium text-white">What do I get for the $10 fee?</span>
-                      <ChevronDown className="h-5 w-5 text-balmville-gold" />
-                    </button>
-                    <div className="mt-2 text-white/80 hidden">
-                      By registering, you receive:<br/>
-                      - Curated Investor Matchmaking – We connect you with investors who align with your industry and funding stage.<br/>
-                      - Expert Review – Our team evaluates your startup to ensure it's investor-ready.<br/>
-                      - Increased Credibility – Investors prefer vetted startups, improving your chances of securing funding.
-                    </div>
-                  </div>
-
-                  <div className="border-b border-balmville-gold/30 pb-4">
-                    <button 
-                      className="flex justify-between items-center w-full text-left"
-                      onClick={(e) => {
-                        const target = e.currentTarget.nextElementSibling;
-                        if (target) {
-                          target.classList.toggle('hidden');
-                        }
-                      }}
-                    >
-                      <span className="text-lg font-medium text-white">How long will my information remain in the database?</span>
-                      <ChevronDown className="h-5 w-5 text-balmville-gold" />
-                    </button>
-                    <div className="mt-2 text-white/80 hidden">
-                      Your startup profile will remain in our database for one year from the date of registration. During this period, we will actively consider your startup for potential investor matchups.
-                    </div>
-                  </div>
-
-                  <div className="border-b border-balmville-gold/30 pb-4">
-                    <button 
-                      className="flex justify-between items-center w-full text-left"
-                      onClick={(e) => {
-                        const target = e.currentTarget.nextElementSibling;
-                        if (target) {
-                          target.classList.toggle('hidden');
-                        }
-                      }}
-                    >
-                      <span className="text-lg font-medium text-white">What happens after I submit my application?</span>
-                      <ChevronDown className="h-5 w-5 text-balmville-gold" />
-                    </button>
-                    <div className="mt-2 text-white/80 hidden">
-                      After submission, you'll receive a confirmation email. Our team will review your application, and if it meets our criteria, we'll contact you with potential matches or for additional information. You can also check your application status by contacting us directly.
-                    </div>
-                  </div>
-
-                  <div className="border-b border-balmville-gold/30 pb-4">
-                    <button 
-                      className="flex justify-between items-center w-full text-left"
-                      onClick={(e) => {
-                        const target = e.currentTarget.nextElementSibling;
-                        if (target) {
-                          target.classList.toggle('hidden');
-                        }
-                      }}
-                    >
-                      <span className="text-lg font-medium text-white">Is my information kept confidential?</span>
-                      <ChevronDown className="h-5 w-5 text-balmville-gold" />
-                    </button>
-                    <div className="mt-2 text-white/80 hidden">
-                      Yes, all information submitted is kept strictly confidential. Startups and investors cannot see each other's information directly. Balmville Capital acts as an intermediary to protect your privacy and secure your data.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <FormSection />
+            <HowItWorksSection />
+            <FAQSection />
           </div>
         </section>
       </main>
