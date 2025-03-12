@@ -7,12 +7,15 @@ import HowItWorksSection from '../components/smartcapital/HowItWorksSection';
 import FAQSection from '../components/smartcapital/FAQSection';
 import ChatbotFAQ from '../components/smartcapital/ChatbotFAQ';
 import PageHeader from '../components/smartcapital/PageHeader';
+import { useLocation } from 'react-router-dom';
 
 const SmartCapitalConnect = () => {
-  // Add useEffect to scroll to top when the component mounts
+  const location = useLocation();
+  
+  // Force scroll to top whenever this component mounts or location changes
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [location]);
 
   return (
     <div className="min-h-screen flex flex-col bg-balmville-teal w-full overflow-hidden">

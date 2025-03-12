@@ -5,20 +5,26 @@ import SubmissionTable from '../components/admin/SubmissionTable';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from '@/contexts/AuthContext';
 import { useSubmissions } from '@/contexts/SubmissionsContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState<'startups' | 'investors'>('startups');
   const { isAuthenticated } = useAuth();
   const { startupSubmissions, investorSubmissions } = useSubmissions();
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     if (!isAuthenticated) {
       navigate('/admin-login');
     }
-    window.scrollTo(0, 0);
-  }, [isAuthenticated, navigate]);
+    
+    // Force scroll to top whenever this component mounts or location changes
+    window.scrollTo({
+      top: 0,
+      behavior: 'instant'
+    });
+  }, [isAuthenticated, navigate, location]);
 
   return (
     <div className="min-h-screen flex flex-col bg-balmville-teal">
