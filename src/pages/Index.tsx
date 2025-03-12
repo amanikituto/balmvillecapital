@@ -13,20 +13,32 @@ const Index = () => {
   useEffect(() => {
     document.body.classList.add('bg-balmville-teal');
     
-    // Smooth scroll for hash links
+    // Handle hash links for smooth scrolling
     const handleHashChange = () => {
       const { hash } = window.location;
       if (hash) {
-        const id = hash.replace('#', '');
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
+        // Add a small delay to ensure the page has loaded properly
+        setTimeout(() => {
+          const id = hash.replace('#', '');
+          const element = document.getElementById(id);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        // Scroll to top if no hash
+        window.scrollTo(0, 0);
       }
     };
 
+    // Initial scroll position
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    } else {
+      handleHashChange();
+    }
+
     window.addEventListener('hashchange', handleHashChange);
-    handleHashChange(); // Handle initial hash
     
     return () => {
       document.body.classList.remove('bg-balmville-teal');
@@ -37,7 +49,7 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col bg-balmville-teal w-full overflow-hidden">
       <Navbar />
-      <main className="flex-grow pt-20"> {/* Added padding to account for fixed navbar */}
+      <main className="flex-grow pt-20">
         <Hero />
         <About />
         <Services />
