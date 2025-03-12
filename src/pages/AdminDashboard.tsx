@@ -15,16 +15,16 @@ const AdminDashboard = () => {
   const location = useLocation();
 
   useEffect(() => {
+    // Authentication check
     if (!isAuthenticated) {
       navigate('/admin-login');
     }
     
-    // Force scroll to top whenever this component mounts or location changes
-    window.scrollTo({
-      top: 0,
-      behavior: 'instant'
-    });
-  }, [isAuthenticated, navigate, location]);
+    // Only scroll to top on initial page load, not on subsequent location changes
+    if (location.pathname === '/admin' && !location.hash && !location.search) {
+      window.scrollTo(0, 0);
+    }
+  }, [isAuthenticated, navigate]);
 
   return (
     <div className="min-h-screen flex flex-col bg-balmville-teal">

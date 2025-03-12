@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Menu, X, ShieldCheck } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -29,10 +28,6 @@ const Navbar = () => {
   const navigateTo = (path: string) => {
     navigate(path);
     setIsMenuOpen(false);
-    window.scrollTo({
-      top: 0,
-      behavior: 'instant'
-    });
   };
 
   return (

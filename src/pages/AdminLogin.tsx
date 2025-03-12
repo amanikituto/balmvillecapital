@@ -19,9 +19,11 @@ const AdminLogin = () => {
   const location = useLocation();
   
   useEffect(() => {
-    // Force scroll to top when component mounts or location changes
-    window.scrollTo(0, 0);
-  }, [location]);
+    // Only scroll to top on initial page load, not on subsequent location changes
+    if (location.pathname === '/admin-login' && !location.hash) {
+      window.scrollTo(0, 0);
+    }
+  }, []);
 
   // If already authenticated, redirect to admin dashboard
   if (isAuthenticated) {
