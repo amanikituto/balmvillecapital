@@ -20,10 +20,8 @@ const AdminDashboard = () => {
       navigate('/admin-login');
     }
     
-    // Only scroll to top on initial page load, not on subsequent location changes
-    if (location.pathname === '/admin' && !location.hash && !location.search) {
-      window.scrollTo(0, 0);
-    }
+    // Always scroll to top when this component mounts
+    window.scrollTo(0, 0);
   }, [isAuthenticated, navigate]);
 
   return (

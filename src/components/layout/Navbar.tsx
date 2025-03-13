@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Menu, X, ShieldCheck } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -28,6 +29,11 @@ const Navbar = () => {
   const navigateTo = (path: string) => {
     navigate(path);
     setIsMenuOpen(false);
+    
+    // Always scroll to top when navigating to these specific pages
+    if (path === '/smart-capital-connect' || path === '/admin-login' || path === '/admin') {
+      window.scrollTo(0, 0);
+    }
   };
 
   return (

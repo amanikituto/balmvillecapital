@@ -12,11 +12,9 @@ import { useLocation } from 'react-router-dom';
 const SmartCapitalConnect = () => {
   const location = useLocation();
   
-  // Only scroll to top on initial page load, not on subsequent location changes
+  // Always scroll to top when this component mounts
   useEffect(() => {
-    if (location.pathname === '/smart-capital-connect' && !location.hash) {
-      window.scrollTo(0, 0);
-    }
+    window.scrollTo(0, 0);
   }, []);
 
   return (
