@@ -1,3 +1,4 @@
+
 import { useState, useRef } from 'react';
 import { Mail, Phone, MapPin, Linkedin } from 'lucide-react';
 
@@ -190,7 +191,7 @@ const Contact = () => {
                   Absa Bank Kenya PLC
                 </li>
                 <li className="flex items-center">
-                  <img src="/lovable-uploads/a319f010-5e0e-40e6-96a5-842891f40b4e.png" alt="Fitzrovian Africa Logo" className="w-8 h-8 mr-3" />
+                  <img src="/lovable-uploads/d53c7304-6fdd-4d51-ae9c-9b5c462a876b.png" alt="Fitzrovian Africa Logo" className="w-8 h-8 mr-3" />
                   Fitzrovian Africa Business Advisory
                 </li>
               </ul>
