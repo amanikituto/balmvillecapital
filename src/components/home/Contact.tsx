@@ -191,7 +191,7 @@ const Contact = () => {
                   Absa Bank Kenya PLC
                 </li>
                 <li className="flex items-center">
-                  <img src="/lovable-uploads/d53c7304-6fdd-4d51-ae9c-9b5c462a876b.png" alt="Fitzrovian Africa Logo" className="w-8 h-8 mr-3" />
+                  <img src="/lovable-uploads/4dd5ca22-b0ef-4fc0-bca6-e36cc91d7cd0.png" alt="Fitzrovian Africa Logo" className="w-8 h-8 mr-3" />
                   Fitzrovian Africa Business Advisory
                 </li>
               </ul>
