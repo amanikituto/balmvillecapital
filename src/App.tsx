@@ -27,6 +27,7 @@ function App() {
                 </ProtectedRoute>
               } 
             />
+            <Route path="/admin/*" element={<AdminDashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
