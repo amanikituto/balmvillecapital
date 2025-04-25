@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Shield } from 'lucide-react';
+import { toast } from "@/components/ui/use-toast";
 
 const AdminLogin = () => {
   const [username, setUsername] = useState('');
@@ -21,23 +22,42 @@ const AdminLogin = () => {
   useEffect(() => {
     // Always scroll to top when this component mounts
     window.scrollTo(0, 0);
+    
+    // Debug log
+    console.log("AdminLogin component mounted", { isAuthenticated });
   }, []);
 
-  // If already authenticated, redirect to admin dashboard
-  if (isAuthenticated) {
-    navigate('/admin');
-    return null;
-  }
+  useEffect(() => {
+    // Check if already authenticated and redirect if needed
+    if (isAuthenticated) {
+      console.log("User is authenticated, redirecting to admin");
+      navigate('/admin');
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("Login form submitted", { username });
     setIsLoading(true);
     
     try {
       const success = await login(username, password);
+      console.log("Login attempt result:", success);
+      
       if (success) {
+        toast({
+          title: "Login successful",
+          description: "You are now being redirected to the dashboard",
+        });
         navigate('/admin');
       }
+    } catch (error) {
+      console.error("Login error:", error);
+      toast({
+        title: "Login failed",
+        description: "An error occurred during login",
+        variant: "destructive",
+      });
     } finally {
       setIsLoading(false);
     }

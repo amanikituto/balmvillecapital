@@ -49,18 +49,23 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   // Check local storage for existing user session on initial load
   useEffect(() => {
-    const storedUser = localStorage.getItem('balmville_user');
-    if (storedUser) {
-      try {
-        setUser(JSON.parse(storedUser));
-      } catch (error) {
-        console.error('Failed to parse stored user', error);
-        localStorage.removeItem('balmville_user');
+    console.log("AuthProvider initialized");
+    try {
+      const storedUser = localStorage.getItem('balmville_user');
+      if (storedUser) {
+        console.log("Found stored user session");
+        const parsedUser = JSON.parse(storedUser);
+        setUser(parsedUser);
+        console.log("User session restored:", parsedUser);
       }
+    } catch (error) {
+      console.error('Failed to parse stored user', error);
+      localStorage.removeItem('balmville_user');
     }
   }, []);
 
   const login = async (username: string, password: string): Promise<boolean> => {
+    console.log("Login attempt", { username });
     // Simulate API request delay
     await new Promise(resolve => setTimeout(resolve, 500));
 

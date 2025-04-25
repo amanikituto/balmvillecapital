@@ -13,6 +13,11 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   const location = useLocation();
 
   useEffect(() => {
+    console.log('ProtectedRoute mounted, checking auth:', { 
+      isAuthenticated, 
+      path: location.pathname 
+    });
+    
     if (!isAuthenticated) {
       console.log('Authentication required - redirecting from:', location.pathname);
     } else {
@@ -32,6 +37,7 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   // If not authenticated, redirect to login page
   if (!isAuthenticated) {
     // Display a toast notification about the redirect
+    console.log('Not authenticated, showing toast and redirecting to login');
     toast({
       title: "Authentication Required",
       description: "Please log in to access this page",
