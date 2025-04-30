@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { useToast } from '@/components/ui/use-toast';
 
@@ -8,10 +7,10 @@ type User = {
 };
 
 interface AuthContextType {
-  user: User | null;
+  user: User | null | undefined;
   login: (username: string, password: string) => Promise<boolean>;
   logout: () => void;
-  isAuthenticated: boolean;
+  isAuthenticated: boolean | undefined;
   updateCredentials: (username: string, currentPassword: string, newPassword: string) => Promise<boolean>;
 }
 
@@ -26,7 +25,8 @@ const DEFAULT_ADMIN = {
 };
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
+  // Initialize with undefined to indicate "loading" state
+  const [user, setUser] = useState<User | null | undefined>(undefined);
   const { toast } = useToast();
 
   // Get current admin credentials or use defaults
@@ -49,7 +49,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   // Check local storage for existing user session on initial load
   useEffect(() => {
-    console.log("AuthProvider initialized");
+    console.log("AuthProvider initialized - checking for stored session");
     try {
       const storedUser = localStorage.getItem('balmville_user');
       if (storedUser) {
@@ -57,10 +57,14 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         const parsedUser = JSON.parse(storedUser);
         setUser(parsedUser);
         console.log("User session restored:", parsedUser);
+      } else {
+        console.log("No stored user session found");
+        setUser(null); // Explicitly set to null when no user found
       }
     } catch (error) {
       console.error('Failed to parse stored user', error);
       localStorage.removeItem('balmville_user');
+      setUser(null); // Explicitly set to null on error
     }
   }, []);
 
@@ -150,13 +154,17 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     });
   };
 
+  // Calculate isAuthenticated based on user state
+  // undefined = still loading, false = not authenticated, true = authenticated
+  const isAuthenticated = user === undefined ? undefined : !!user;
+
   return (
     <AuthContext.Provider value={{ 
-      user, 
+      user: user === undefined ? null : user, 
       login, 
       logout,
       updateCredentials,
-      isAuthenticated: !!user 
+      isAuthenticated
     }}>
       {children}
     </AuthContext.Provider>

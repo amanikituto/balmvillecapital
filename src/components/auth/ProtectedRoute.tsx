@@ -18,15 +18,18 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
       path: location.pathname 
     });
     
-    if (!isAuthenticated) {
+    if (isAuthenticated === false) {
       console.log('Authentication required - redirecting from:', location.pathname);
-    } else {
+    } else if (isAuthenticated === true) {
       console.log('User is authenticated, accessing:', location.pathname);
+    } else {
+      console.log('Authentication state is loading...');
     }
   }, [isAuthenticated, location.pathname]);
 
   // If authentication is undefined (still loading), show a loading state
   if (isAuthenticated === undefined) {
+    console.log('Auth state is loading, showing loading state');
     return (
       <div className="min-h-screen flex items-center justify-center bg-balmville-teal">
         <div className="text-white text-xl">Verifying authentication...</div>

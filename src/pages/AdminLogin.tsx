@@ -29,11 +29,17 @@ const AdminLogin = () => {
 
   useEffect(() => {
     // Check if already authenticated and redirect if needed
-    if (isAuthenticated) {
+    // Only redirect if authentication state is determined (not undefined)
+    if (isAuthenticated === true) {
       console.log("User is authenticated, redirecting to admin");
-      navigate('/admin');
+      
+      // Get the intended destination from location state, or default to '/admin'
+      const from = location.state?.from?.pathname || '/admin';
+      console.log(`Redirecting to ${from}`);
+      
+      navigate(from, { replace: true });
     }
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated, navigate, location.state]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,7 +55,10 @@ const AdminLogin = () => {
           title: "Login successful",
           description: "You are now being redirected to the dashboard",
         });
-        navigate('/admin');
+        
+        // Get the intended destination from location state, or default to '/admin'
+        const from = location.state?.from?.pathname || '/admin';
+        navigate(from, { replace: true });
       }
     } catch (error) {
       console.error("Login error:", error);
@@ -62,6 +71,15 @@ const AdminLogin = () => {
       setIsLoading(false);
     }
   };
+
+  // Show loading state if we're still determining auth status
+  if (isAuthenticated === undefined) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-balmville-teal">
+        <div className="text-white text-xl">Checking authentication status...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-balmville-teal">
